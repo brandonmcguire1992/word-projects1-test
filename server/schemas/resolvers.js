@@ -1,5 +1,5 @@
 const { AuthenticationError } = require('apollo-server-express');
-const { User, Product, Category, Order } = require('../models');
+const { User } = require('../models');
 const { signToken } = require('../utils/auth');
 //const stripe = require('stripe')('sk_test_4eC39HqLyjWDarjtT1zdp7dc');
 
@@ -46,7 +46,18 @@ const resolvers = {
       const token = signToken(user);
 
       return { token, user };
-    }
+    },
+    addProject: async (parent, { project }, context) => {      
+      if (context.user) {
+        const saveproject =  await User.findByIdAndUpdate(       
+          { _id: context.user._id},
+          { $push: { projects: project }},
+          { new: true }         
+        )
+        return saveproject;
+      }
+    },
+
 
   }
 };

@@ -24,23 +24,23 @@ input projectInput{
   date:String
 }
 
-  type Auth {
-    token: ID
-    user: User
-  }
+type Auth {
+  token: ID
+  user: User
+}
 
-    type Query {
-      me: User
-      users: [User]  
-  }
+type Query {
+  me: User
+  users: [User]  
+}
 
-  type Mutation {
+type Mutation {
     addUser(firstName:String!, lastName:String!, email:String!, password:String!): Auth   
     login(email: String!, password: String!): Auth
-    addProjects(project:projectInput):User
+    addProject(project:projectInput):User
     deleteProjects(_id:ID):User
     editProjects(_id:ID):User
-  }
+}
 `;
 
 module.exports = typeDefs;
