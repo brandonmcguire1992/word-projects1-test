@@ -1,5 +1,5 @@
 :root {
-  --primary: #232F3E;
+  --primary: #532e18;
   --secondary: #F3A847;
   --tertiary: #B12704;
   --light: #fafafa;
@@ -16,6 +16,7 @@
 html,
 body {
   min-height: 100%;
+  background-image: url('./assets/fondo.jpg'); 
 }
 
 body {
@@ -81,10 +82,16 @@ a:hover {
 
 header {
   background: var(--primary);
+  background-image:url('./assets/fondo.jpg') ;
+  
 }
 
 header a {
-  color: var(--light);
+  color:#370617;
+}
+a{
+  text-decoration-style: none;
+
 }
 
 button {
@@ -201,6 +208,11 @@ input:focus {
 
 .error-text {
   color: var(--error);
+}
+label{
+  color:#370617;
+  font-weight: bold;
+
 }
 
 @media screen and (max-width: 768px) {
