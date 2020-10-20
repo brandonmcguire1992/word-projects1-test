@@ -215,6 +215,44 @@ label{
 
 }
 
+.card-d {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  border-radius: 15px;
+  background-color: rgba(2, 97, 116, 0.466);
+  padding: 20px;
+  color: white;
+  border: solid 3px var(--primary);
+  width: 90%;
+  margin: 3.5%;
+  /* display: flex; */
+}
+
+.LabelDasgboard {
+  color: white;
+  font-weight: bold;
+}
+
+input, textarea {
+  border-radius: 10px;
+    border: 1px solid var(--primary);
+    display: block;
+    padding: 7px 15px;
+    font-size: 16px;
+    color: black;
+    width: 100%;
+    margin-bottom: 15px;
+    background-color: rgba(255, 255, 255, 0.75);
+}
+
+button {
+  color: white;
+  background-color: var(--primary);
+  padding: 10px;
+  margin: 20px;
+  border-radius: 15px;
+  width: 100px;
+}
+
 @media screen and (max-width: 768px) {
   .card {
     width: 100%;

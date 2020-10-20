@@ -1,14 +1,16 @@
 import React from "react";
-import ProductList from "../components/ProductList";
-import CategoryMenu from "../components/CategoryMenu";
-import Cart from "../components/Cart";
+// import ProductList from "../components/ProductList";
+// import CategoryMenu from "../components/CategoryMenu";
+// import Cart from "../components/Cart";
+import DashboardForm from "../components/Dashboard" 
 
 const Home = () => {
   return (
     <div className="container">
-      <CategoryMenu />
-      <ProductList />
-      <Cart />
+      {/* <CategoryMenu />
+      <ProductList /> */}
+      <DashboardForm/>
+      {/* <Cart /> */}
     </div>
   );
 };
