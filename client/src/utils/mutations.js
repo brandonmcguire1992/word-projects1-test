@@ -21,3 +21,23 @@ export const ADD_USER = gql`
     }
   }
 `;
+
+export const ADD_PROJECT=gql`
+mutation addProject($project:projectInput){
+  addProject(project:$project){
+    _id   
+    	user {
+				firstName
+				lastName
+				email        
+				projects {
+					 title
+           ideasText
+          date
+				}
+        projectCount
+			}     
+   }
+}
+
+`;
