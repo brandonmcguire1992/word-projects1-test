@@ -31,14 +31,15 @@ type Auth {
 
 type Query {
   me: User
-  users: [User]  
-}
+  users: [User]
+  user(firstName: String!): User  
+  }
 
 type Mutation {
     addUser(firstName:String!, lastName:String!, email:String!, password:String!): Auth   
     login(email: String!, password: String!): Auth
     addProject(project:projectInput):User
-    deleteProjects(_id:ID):User
+    deleteProjects(projectId:String):User
     editProjects(_id:ID):User
 }
 `;
