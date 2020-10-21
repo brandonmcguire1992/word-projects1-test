@@ -4,19 +4,24 @@ export const QUERY_USER = gql`
 {
   user {
     firstName
-    lastName
-    orders {
-      _id
-      purchaseDate
-      products {
-        _id
-        name
-        description
-        price
-        quantity
-        image
-      }
-    }
+    lastName    
   }
+}
+`;
+
+export const ME = gql`
+{
+     user {
+    firstName
+    lastName
+    email
+    projectCount        
+    projects {
+       title
+       ideasText
+      date
+    }
+    
+  }     
 }
 `;
