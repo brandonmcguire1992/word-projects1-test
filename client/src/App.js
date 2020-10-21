@@ -33,10 +33,10 @@ function App() {
         <div>
           {/* <StoreProvider>*/}
             <Nav /> 
-            {<Switch>
-              <Route exact path="/" component={Home} />             
+            {<Switch>             
               <Route exact path="/login" component={Login} />
-              <Route exact path="/signup" component={Signup} />                     
+              <Route exact path="/signup" component={Signup} />  
+              <Route exact path="/" component={Home} />                   
             </Switch> }
           {/* </StoreProvider> */}
         </div>

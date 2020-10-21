@@ -17,6 +17,11 @@ html,
 body {
   min-height: 100%;
   background-image: url('./assets/fondo.jpg'); 
+  padding: 1%;
+  background-size: cover;
+  background-position: center;  
+  background-attachment: fixed;
+  background-position: 50%; 
 }
 
 body {
@@ -83,6 +88,10 @@ a:hover {
 header {
   background: var(--primary);
   background-image:url('./assets/fondo.jpg') ;
+  background-size: cover;
+  background-position: center;  
+  background-attachment: fixed;
+  background-position: 50%; 
   
 }
 
@@ -215,6 +224,13 @@ label{
 
 }
 
+.title {
+  font-weight: bold;
+  font-size: 36px;
+  color: #370617;
+  margin: 0;
+  text-shadow: 0 0 10px rgba(253, 253, 253, 0.5);
+}
 .card-d {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   border-radius: 15px;

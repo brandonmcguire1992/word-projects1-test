@@ -34,11 +34,11 @@ function DashboardForm() {
 
     return (
         <section>
-            <h1 data-testid="h1tag">Project Detail</h1>
+            <h1 className="title" data-testid="h1tag">Project Detail</h1>
             <form className="card-d" id="contact-form" onSubmit={handleSubmit}>
                 <div>
                     <label className="LabelDasgboard" htmlFor="name">Project Name:</label>
-                    <input type="text" name="name" defaultValue={project}/>
+                    <input type="text" name="project" defaultValue={project} onBlur={handleChange} />
                 </div>
                 <div>
                     <label className="LabelDasgboard" htmlFor="textArea">Text Area:</label>
