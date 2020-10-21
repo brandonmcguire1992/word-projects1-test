@@ -1,10 +1,17 @@
 import React from "react";
-import Redaccion from '../components/Redaccion';
+
+// import ProductList from "../components/ProductList";
+// import CategoryMenu from "../components/CategoryMenu";
+// import Cart from "../components/Cart";
+import DashboardForm from "../components/Dashboard" 
 
 const Home = () => {
   return (
     <div className="container">
-      <Redaccion/>      
+      {/* <CategoryMenu />
+      <ProductList /> */}
+      <DashboardForm/>
+      {/* <Cart /> */}
     </div>
   );
 };

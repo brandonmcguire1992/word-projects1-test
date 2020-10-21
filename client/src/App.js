@@ -13,6 +13,7 @@ import ApolloClient from 'apollo-boost';
 // import Success from "./pages/Success";
 // import OrderHistory from "./pages/OrderHistory";
 
+
 const client = new ApolloClient({
   request: (operation) => {
     const token = localStorage.getItem('id_token')
@@ -36,7 +37,6 @@ function App() {
               <Route exact path="/" component={Home} />         
               <Route exact path="/login" component={Login} />
               <Route exact path="/signup" component={Signup} />                     
-              
             </Switch> }
           {/* </StoreProvider> */}
         </div>

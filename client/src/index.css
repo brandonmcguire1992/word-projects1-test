@@ -17,6 +17,11 @@ html,
 body {
   min-height: 100%;
   background-image: url('./assets/fondo.jpg'); 
+  padding: 1%;
+  background-size: cover;
+  background-position: center;  
+  background-attachment: fixed;
+  background-position: 50%; 
 }
 
 body {
@@ -83,6 +88,10 @@ a:hover {
 header {
   background: var(--primary);
   background-image:url('./assets/fondo.jpg') ;
+  background-size: cover;
+  background-position: center;  
+  background-attachment: fixed;
+  background-position: 50%; 
   
 }
 
@@ -215,20 +224,49 @@ label{
 
 }
 
-.formProject{
-  display: flex;
-  flex-direction: column;
-  align-content: center;
-  border-radius: 5px; 
-  
+.title {
+  font-weight: bold;
+  font-size: 36px;
+  color: #370617;
+  margin: 0;
+  text-shadow: 0 0 10px rgba(253, 253, 253, 0.5);
 }
-.formulario{
-  width: 100%;
+.card-d {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  border-radius: 15px;
+  background-color: rgba(2, 97, 116, 0.466);
+  padding: 20px;
+  color: white;
+  border: solid 3px var(--primary);
+  width: 90%;
+  margin: 3.5%;
+  /* display: flex; */
 }
 
-textarea.formulario{ 
-  flex-direction: column;
-  border-radius: 5px; 
+.LabelDasgboard {
+  color: white;
+  font-weight: bold;
+}
+
+input, textarea {
+  border-radius: 10px;
+    border: 1px solid var(--primary);
+    display: block;
+    padding: 7px 15px;
+    font-size: 16px;
+    color: black;
+    width: 100%;
+    margin-bottom: 15px;
+    background-color: rgba(255, 255, 255, 0.75);
+}
+
+button {
+  color: white;
+  background-color: var(--primary);
+  padding: 10px;
+  margin: 20px;
+  border-radius: 15px;
+  width: 100px;
 }
 
 @media screen and (max-width: 768px) {
