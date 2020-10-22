@@ -50,3 +50,24 @@ mutation addProject($project:projectInput){
    }
 }
 `;
+
+export const DELETE_PROJECT=gql`
+mutation deleteProject($_id:ID){
+  deleteProject(_id:$_id){
+   _id
+   }
+}
+`;
+
+export const EDIT_PROJECT=gql`
+mutation editProject($project:projectInput){
+  editProject(project:$project){
+    _id   
+        projects {
+        title
+        ideasText
+        date
+      }
+   }
+}
+`;

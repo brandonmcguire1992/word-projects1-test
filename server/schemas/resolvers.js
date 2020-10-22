@@ -55,6 +55,7 @@ const resolvers = {
 
     addProject: async (parent, { project }, context) => {
       if (context.user) {
+        console.log("el project",project)
         const saveproject = await User.findByIdAndUpdate(
           { _id: context.user._id },
           { $push: { projects: project } },
@@ -63,23 +64,32 @@ const resolvers = {
         return saveproject;
       }
     },
-    deleteProjects: async (parent, { projectId }, context) => {
+    deleteProject: async (parent, {_id}, context) => {
       if (context.user) {
-        console.log(projectId)
+        console.log("projectId",_id)
         const deletepro = await User.findByIdAndUpdate(
           { _id: context.user._id },
-          {
-            $pull: {
-              projects:projectId
-             
-            }
-          },
+          {$pull: {projects: {"_id":_id}}},  
           { new: true }
         )
         return deletepro;
       }
-    }
+    },
 
+   // model.update({"_id": 1, "items.id": "2"}, 
+//{$set: {"items.$.name": "yourValue","items.$.value": "yourvalue"}})
+
+    editProject: async (parent, {project}, context) => {
+      if (context.user) {
+        console.log("projectId",project)
+        const editproject = await User.update(
+          { _id: context.user._id, "projects._id":project._id },
+          {$set: {"projects.$.title": project.title,"projects.$.ideasText": project.ideasText}},        
+          { new: true }
+        )
+        return editproject;
+      }
+  }
   }
 };
 
