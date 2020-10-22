@@ -38,11 +38,11 @@ function DashboardForm() {
             <form className="card-d" id="contact-form" onSubmit={handleSubmit}>
                 <div>
                     <label className="LabelDasgboard" htmlFor="name">Project Name:</label>
-                    <input type="text" name="project" defaultValue={project} onBlur={handleChange} />
+                    <input type="text" name="project" defaultValue={project} onChange={handleChange} />
                 </div>
                 <div>
                     <label className="LabelDasgboard" htmlFor="textArea">Text Area:</label>
-                    <textarea name="text" rows="5" defaultValue={text} onBlur={handleChange} />
+                    <textarea name="text" rows="5" defaultValue={text} onChange={handleChange} />
                 </div>
                 {errorText && (
                     <div>
