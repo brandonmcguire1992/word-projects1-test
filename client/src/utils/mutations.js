@@ -37,8 +37,8 @@ mutation addUser($firstName: String!,$lastName:String!,$email:String!,$password:
 `;
 
 export const ADD_PROJECT=gql`
-mutation addProject($project:projectInput){
-  addProject(project:$project){
+mutation addProject($title: String!,$ideasText:String!) {
+  addProject(title:$title,ideasText:$ideasText) {
     _id   
      firstName
      lastName    
