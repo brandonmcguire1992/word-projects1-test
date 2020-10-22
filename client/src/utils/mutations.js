@@ -37,12 +37,33 @@ mutation addUser($firstName: String!,$lastName:String!,$email:String!,$password:
 `;
 
 export const ADD_PROJECT=gql`
-mutation addProject($title: String!,$ideasText:String!) {
-  addProject(title:$title,ideasText:$ideasText) {
+mutation addProject($project:projectInput){
+  addProject(project:$project){
     _id   
      firstName
      lastName    
     	projects {
+        title
+        ideasText
+        date
+      }
+   }
+}
+`;
+
+export const DELETE_PROJECT=gql`
+mutation deleteProject($_id:ID){
+  deleteProject(_id:$_id){
+   _id
+   }
+}
+`;
+
+export const EDIT_PROJECT=gql`
+mutation editProject($project:projectInput){
+  editProject(project:$project){
+    _id   
+        projects {
         title
         ideasText
         date
