@@ -41,17 +41,14 @@ function checkDatabase() {
   getAll.onsuccess = function () {
     if (getAll.result.length > 0) {
       // const authorId = "some_uid";
-      const query = `mutation addProject($project:projectInput){
-        addProject(project:$project){
-          _id   
-           firstName
-           lastName    
-            projects {
-              title
-              ideasText
-              date
-            }
-         }
+      const query = `mutation addBulkProject($project:[projectInput]){
+        addBulkProject(project:$project){
+          projects{
+            title
+            ideasText
+            date
+          }
+        }
       }`;
 
       fetch("/graphql", {
