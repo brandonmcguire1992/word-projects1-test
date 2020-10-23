@@ -76,6 +76,7 @@ const resolvers = {
       }
     },
 
+
    // model.update({"_id": 1, "items.id": "2"}, 
 //{$set: {"items.$.name": "yourValue","items.$.value": "yourvalue"}})
 
@@ -89,8 +90,25 @@ const resolvers = {
         )
         return editproject;
       }
+  },
+  addBulkProject: async (parent, { project }, context) => {
+    if (context.user) {
+      console.log("el project",project)
+      const manyProjects = await User.findByIdAndUpdate(
+        { _id: context.user._id },        
+        { $push: { projects:{$each:project}}},
+        { new: true }
+      )
+      return manyProjects;
+    }
   }
   }
+  /*db.students.update(
+   { name: "joe" },
+   { $push: { scores: { $each: [ 90, 92, 85 ] } } }
+)*/
+
+
 };
 
 module.exports = resolvers;

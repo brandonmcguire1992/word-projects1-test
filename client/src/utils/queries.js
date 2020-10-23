@@ -1,27 +1,33 @@
 import gql from 'graphql-tag';
 
 export const QUERY_USER = gql`
-{
-  user {
-    firstName
-    lastName    
+  query ($firstName: String!) {
+    user(firstName: $firstName) {
+          firstName
+          lastName				       
+          projects {
+             title
+             ideasText
+             date
+          }
+      projectCount
+    }
   }
-}
 `;
 
 export const ME = gql`
 {
-     user {
-    firstName
-    lastName
-    email
-    projectCount        
-    projects {
-       title
-       ideasText
-      date
-    }
-    
-  }     
+me{  
+  _id
+  firstName
+  lastName   
+  projects{
+    _id
+    title
+    ideasText
+    date      
+  }
+   projectCount     
+ }
 }
 `;

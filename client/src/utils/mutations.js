@@ -39,10 +39,7 @@ mutation addUser($firstName: String!,$lastName:String!,$email:String!,$password:
 export const ADD_PROJECT=gql`
 mutation addProject($project:projectInput){
   addProject(project:$project){
-    _id   
-     firstName
-     lastName    
-    	projects {
+        projects {
         title
         ideasText
         date
@@ -70,4 +67,16 @@ mutation editProject($project:projectInput){
       }
    }
 }
+`;
+export const ADD_BULK_PROJECT=gql`
+mutation addBulkProject($project:[projectInput]){
+  addBulkProject(project:$project){
+    projects{
+      title
+      ideasText
+      date
+    }
+  }
+}
+
 `;
