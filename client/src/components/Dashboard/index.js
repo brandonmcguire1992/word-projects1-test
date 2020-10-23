@@ -1,36 +1,44 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
+import { useMutation, useQuery } from '@apollo/react-hooks';
+import { ADD_PROJECT } from '../../utils/mutations';
 
 function DashboardForm() {
-    const [formState, setFormState] = useState({ project: '', text: '' })
-    const { project, text } = formState
+    const [project, setProjectInfo] = useState({ title: '', ideasText: '' })
+    const { title, ideasText } = project;
 
     const [errorText, setErrorText] = useState('')
 
+    const[addProject]=useMutation(ADD_PROJECT);
+
+
     function handleChange(e) {
-        // if (e.target.name === 'project') {
-        //     const isValid = validateEmail(e.target.value)
-        //     // console.log(isValid)
-        //     if (!isValid) {
-        //         setErrorText('Your project is invalid')
-        //     } else {
-        //         setErrorText('')
-        //     }
-        // } else {
-            if (!e.target.value.length) {
-                setErrorText(`${e.target.name} is required`)
-            } else {
-                setErrorText('')
-            }
-        // }
-        // if (!errorText) {
-        //     setFormState({ ...formState, [e.target.name]: e.target.value })
-        // }
+        if (!e.target.value.length) {
+            setErrorText(`${e.target.name} is required.`);
+        } else {
+            setErrorText('');
+        }
+
+        if (!errorText) {
+            setProjectInfo({ ...project, [e.target.name]: e.target.value });
+        }
+       
     }
 
-    function handleSubmit(e) {
-        e.preventDefault()
-        console.log(formState)
-    }
+    const handleSubmit= async e=> {
+        e.preventDefault();
+    console.log("projects data",project)
+       try{
+
+       await addProject({
+           variables:{project}
+       });
+     
+       }  
+       catch(e){
+           console.error(e);
+       }     
+        
+    };
 
     return (
         <section>
@@ -38,11 +46,11 @@ function DashboardForm() {
             <form className="card-d" id="contact-form" onSubmit={handleSubmit}>
                 <div>
                     <label className="LabelDasgboard" htmlFor="name">Project Name:</label>
-                    <input type="text" name="project" defaultValue={project} onBlur={handleChange} />
+                    <input type="text" name="title" defaultValue={title} onChange={handleChange} />
                 </div>
                 <div>
                     <label className="LabelDasgboard" htmlFor="textArea">Text Area:</label>
-                    <textarea name="text" rows="5" defaultValue={text} onBlur={handleChange} />
+                    <textarea name="ideasText" rows="5" defaultValue={ideasText} onChange={handleChange} />
                 </div>
                 {errorText && (
                     <div>
