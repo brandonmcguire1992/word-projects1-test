@@ -98,6 +98,26 @@ header {
 header a {
   color:#370617;
 }
+header nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  list-style: none;
+  padding-left: 500px;
+}
+header nav ul li a {
+  padding: 15px 20px;
+  font-weight: lighter;
+  font-size: 1.55vw;
+  text-shadow: 0 0 10px rgb(255, 254, 254);
+}
+header nav ul li a:hover {
+  background: var(--light);
+  color: #370617;
+  border-radius: 15px;
+  text-shadow: none;
+}
 a{
   text-decoration-style: none;
 
@@ -162,6 +182,13 @@ input:focus {
   flex-wrap: wrap;
 }
 
+.flex-row2 {
+  display: flex;
+  flex-wrap: wrap;
+  padding-left: 900px;
+}
+
+
 .space-between {
   justify-content: space-between;
 }
@@ -171,6 +198,11 @@ input:focus {
 }
 
 .mx-1 {
+  margin-right: var(--spacing-one);
+  margin-left: var(--spacing-one);
+}
+
+.mx-12 {
   margin-right: var(--spacing-one);
   margin-left: var(--spacing-one);
 }
