@@ -14,7 +14,7 @@ function Nav() {
             </Link>
           </li>
           <li className="mx-1">
-            <Link to="/">
+            <Link to="/MyProject">
               My Projects
             </Link>
           </li>
