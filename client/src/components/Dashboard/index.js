@@ -1,11 +1,63 @@
 import React, { useState } from "react";
 import { useMutation, useQuery } from "@apollo/react-hooks";
 import { ADD_PROJECT } from "../../utils/mutations";
+import { ME } from "../../utils/queries";
+
 function DashboardForm() {
-  const [project, setProjectInfo] = useState({ title: "", ideasText: "" });
+
+  const [project, setProjectInfo] = useState({ title: "", ideasText: "" });  
   const { title, ideasText } = project;
+
   const [errorText, setErrorText] = useState("");
-  const [addProject] = useMutation(ADD_PROJECT);
+
+  const [addProject,{ error }] = useMutation(ADD_PROJECT,{
+    update(cache, { data: { addProject } }) {
+      try {
+        // could potentially not exist yet, so wrap in a try...catch
+        const { proj } = cache.readQuery({ query: ME });
+        cache.writeQuery({
+          query: ME,
+          data: { proj: [addProject, ...proj] }
+        });
+      } catch (e) {
+        console.error(e);
+      }
+  
+      // update me object's cache, appending new thought to the end of the array
+      const { me } = cache.readQuery({ query: ME });
+      cache.writeQuery({
+        query: ME,
+        data: { me: { ...me, projects: [...me.projects, addProject] } }
+      });
+    }
+  });
+
+/*
+  const [addThought, { error }] = useMutation(ADD_THOUGHT, {
+    update(cache, { data: { addThought } }) {
+      try {
+        // could potentially not exist yet, so wrap in a try...catch
+        const { thoughts } = cache.readQuery({ query: QUERY_THOUGHTS });
+        cache.writeQuery({
+          query: QUERY_THOUGHTS,
+          data: { thoughts: [addThought, ...thoughts] }
+        });
+      } catch (e) {
+        console.error(e);
+      }
+  
+      // update me object's cache, appending new thought to the end of the array
+      const { me } = cache.readQuery({ query: QUERY_ME });
+      cache.writeQuery({
+        query: QUERY_ME,
+        data: { me: { ...me, thoughts: [...me.thoughts, addThought] } }
+      });
+    }
+  });
+
+*/ 
+
+
   function handleChange(e) {
     if (!e.target.value.length) {
       setErrorText(`${e.target.name} is required.`);
