@@ -32,6 +32,7 @@ function DashboardForm() {
     }
   });
 
+
   function handleChange(e) {
     if (!e.target.value.length) {
       setErrorText(`${e.target.name} is required.`);
