@@ -1,53 +1,57 @@
-import React, { Component } from "react";
-import { useQuery } from "@apollo/react-hooks";
+import React, { useState } from "react";
+import { useQuery, useMutation } from "@apollo/react-hooks";
 import { ME } from "../../utils/queries";
-export default function Project() {
+import { EDIT_PROJECT, DELETE_PROJECT } from "../../utils/mutations";
+
+
+
+function Project() {
+
   const { loading, data } = useQuery(ME);
+
+  const [project, setProjectInfo] = useState({ title: "", ideasText: "" });
+  const { title, ideasText } = project;
+
+
+  const [deleteProject, { error }] = useMutation(DELETE_PROJECT);
+
   const userData = data?.me || {};
-  console.log("Query user", userData.projects);
-  if (!loading) {
-    console.log(userData);
+
+  const handleDeleteProject = async(id) => {
+ console.log("ID to delete")
+    try {
+      const {data} = await deleteProject(id);
+      deleteProject(id);
+
+    }  catch(err) {
+    console.error(err);
   }
-  return !loading
-    ? userData.projects.map((my) => (
-        <div key={my._id} class="row">
-          <div class="col s12 m6">
-            <div class="card blue-grey darken-1">
-              <div class="card-content white-text">
-                <span class="card-title">{my.title}</span>
-                <p>{my.ideasText}</p>
-              </div>
-              <div class="card-action">
-                <button>Edit</button>
-                <button>Delete</button>
-              </div>
-            </div>
+};
+
+console.log("Query user", userData.projects);
+
+if (!loading) {
+  console.log(userData);
+}
+return !loading
+  ? userData.projects.map((my) => (
+    <div key={my._id} class="row">
+      <div class="col s12 m6">
+        <div class="card blue-grey darken-1">
+          <div class="card-content white-text">
+            <span class="card-title">{my.title}</span>
+            <p>{my.ideasText}</p>
+          </div>
+          <div class="card-action">
+            <button >Edit</button>
+            <button onClick={() => handleDeleteProject(my._id)}>Delete</button>
           </div>
         </div>
-      ))
-    : "";
+      </div>
+    </div>
+  ))
+  : "";
 }
-// import React, { Component } from 'react';
 
-// function Project() {
-// return (
-//     <div class="row">
-//     <div class="col s12 m6">
-//       <div class="card blue-grey darken-1">
-//         <div class="card-content white-text">
-//           <span class="card-title">Card Title</span>
-//           <p>I am a very simple card. I am good at containing small bits of information.
-//           I am convenient because I require little markup to use effectively.</p>
-//         </div>
-//         <div class="card-action">
-//           <button>Edit</button>
-//           <button>Delete</button>
-//         </div>
-//       </div>
-//     </div>
-//   </div>
-// )
-
-// };
-
-// export default Project
+// onClick={(event) =>this.deleteEntry(event, entry._id)}
+export default Project;
