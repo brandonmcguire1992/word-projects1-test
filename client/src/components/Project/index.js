@@ -2,18 +2,22 @@ import Accordion from 'react-bootstrap/Accordion'
 import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
 import 'bootstrap/dist/css/bootstrap.min.css';
-
 import React, { useState } from "react";
 import { useQuery, useMutation } from "@apollo/react-hooks";
 import { ME } from "../../utils/queries";
 import { DELETE_PROJECT } from "../../utils/mutations";
 
 function Project() {
+
   const { loading, data } = useQuery(ME);
+ 
   const [deleteProject, { error }] = useMutation(DELETE_PROJECT);
+
   const userData = data?.me || {};
+
   const handleDeleteProject = async (_id) => {
     console.log("ID to delete", _id)
+  
     try {
       await deleteProject({ variables: { _id } });
       window.location.reload();
@@ -21,10 +25,13 @@ function Project() {
       console.error(err);
     }
   };
+
   console.log("Query user", userData.projects);
+
   if (!loading) {
     console.log(userData);
   }
+
   return (
     <>
       <h5>{userData.firstName} {userData.lastName} have {userData.projectCount} project(s)</h5>
@@ -60,4 +67,5 @@ function Project() {
     </>
   )
 }
+
 export default Project;

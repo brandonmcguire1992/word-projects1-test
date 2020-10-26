@@ -34,7 +34,7 @@ const resolvers = {
 
       return { token, user };
     },
-
+ 
     login: async (parent, { email, password }) => {
       const user = await User.findOne({ email });
 
@@ -53,6 +53,7 @@ const resolvers = {
       return { token, user };
     },
 
+    //add a proyect to the array for a user
     addProject: async (parent, { project }, context) => {
       if (context.user) {
         console.log("el project",project)
@@ -64,22 +65,20 @@ const resolvers = {
         return saveproject;
       }
     },
+    //Delete a proyect receive a id 
     deleteProject: async (parent, {_id}, context) => {
       if (context.user) {
         console.log("projectId",_id)
         const deletepro = await User.findByIdAndUpdate(
           { _id: context.user._id },
-          {$pull: {projects: {"_id":_id}}},  
+          {$pull: {projects: {_id}}},  
           { new: true }
         )
         return deletepro;
       }
     },
 
-
-   // model.update({"_id": 1, "items.id": "2"}, 
-//{$set: {"items.$.name": "yourValue","items.$.value": "yourvalue"}})
-
+  //Edit project have the argument array project
     editProject: async (parent, {project}, context) => {
       if (context.user) {
         console.log("projectId",project)
@@ -91,11 +90,14 @@ const resolvers = {
         return editproject;
       }
   },
-  addBulkProject: async (parent, { project }, context) => {
+
+  //Insert many projects for work in offline way
+  addBulkProject: async (parent, { project,token }, context) => {
+   console.log("Token user".token)
     if (context.user) {
       console.log("el project",project)
       const manyProjects = await User.findByIdAndUpdate(
-        { _id: context.user._id },        
+        { _id: token },        
         { $push: { projects:{$each:project}}},
         { new: true }
       )
@@ -103,12 +105,7 @@ const resolvers = {
     }
   }
   }
-  /*db.students.update(
-   { name: "joe" },
-   { $push: { scores: { $each: [ 90, 92, 85 ] } } }
-)*/
-
-
+ 
 };
 
 module.exports = resolvers;

@@ -40,9 +40,10 @@ function checkDatabase() {
 
   getAll.onsuccess = function () {
     if (getAll.result.length > 0) {
+      console.log(getAll.result)
       // const authorId = "some_uid";
-      const query = `mutation addBulkProject($project:[projectInput]){
-        addBulkProject(project:$project){
+      const query = `mutation addBulkProject($project:[projectInput],$token:ID){
+        addBulkProject(project:$project,token:$token){
           projects{
             title
             ideasText
@@ -60,8 +61,7 @@ function checkDatabase() {
         body: JSON.stringify({
           query,
           variables: {
-            _id,
-            authorId,
+            projects:getAll.result
           },
         }),
       })
