@@ -10,14 +10,14 @@ import { DELETE_PROJECT } from "../../utils/mutations";
 function Project() {
 
   const { loading, data } = useQuery(ME);
- 
+
   const [deleteProject, { error }] = useMutation(DELETE_PROJECT);
 
   const userData = data?.me || {};
 
   const handleDeleteProject = async (_id) => {
     console.log("ID to delete", _id)
-  
+
     try {
       await deleteProject({ variables: { _id } });
       window.location.reload();
@@ -34,7 +34,10 @@ function Project() {
 
   return (
     <>
-      <h5>{userData.firstName} {userData.lastName} have {userData.projectCount} project(s)</h5>
+      <h5 className="title-2">{userData.firstName} {userData.lastName} have {userData.projectCount} project(s)</h5>
+      <svg clasName="New" width="40px" height="40px" viewBox="0 0 16 16" class="bi bi-plus-circle-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+        <path fill-rule="evenodd" d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z" />
+      </svg>
       {
         !loading ? userData.projects.map((my) => {
           return (
@@ -48,7 +51,7 @@ function Project() {
                     <Card.Body>
                       <p>{my.ideasText}</p><br />
 
-                      <Button variant="outline-success">
+                      <Button onClick={() => handleDeleteProject(my._id)} variant="outline-success">
 
                         <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-trash" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                           <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z" />
