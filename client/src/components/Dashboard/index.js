@@ -50,10 +50,14 @@ function DashboardForm() {
       await addProject({
         variables: { project },
       });
+      setProjectInfo({title: "", ideasText: ""});
+
     } catch (e) {
       window.saveRecord(project);
       console.error(e);
     }
+
+    //
   };
   return (
     <section>
@@ -68,7 +72,7 @@ function DashboardForm() {
           <input
             type="text"
             name="title"
-            defaultValue={title}
+            value={title}
             onChange={handleChange}
           />
         </div>
@@ -79,7 +83,7 @@ function DashboardForm() {
           <textarea
             name="ideasText"
             rows="5"
-            defaultValue={ideasText}
+            value={ideasText}
             onChange={handleChange}
           />
         </div>
