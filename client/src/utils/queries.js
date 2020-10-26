@@ -31,3 +31,20 @@ me{
  }
 }
 `;
+
+export const ALL_PROJECTS=gql`
+query{
+  users{  
+    _id
+    firstName
+    lastName   
+    projects{
+      _id
+      title
+      ideasText
+      date      
+    }
+     projectCount     
+  }
+}
+`;
