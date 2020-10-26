@@ -60,6 +60,7 @@ h3 {
 
 h4 {
   font-size: 1.5rem;
+  text-align: left;
 }
 
 h5 {
@@ -73,6 +74,7 @@ h6 {
 p {
   font-size: 1.1rem;
   margin-top: 0;
+  text-align: justify;
 }
 
 a {
@@ -123,7 +125,7 @@ a{
 
 }
 
-button {
+.btn {
   font-size: 1rem;
   text-decoration: none;
   padding: 0.25rem 1rem;
@@ -135,11 +137,11 @@ button {
   background-color: var(--secondary);
 }
 
-button:hover {
+.btn:hover {
   opacity: .8;
 }
 
-button[disabled] {
+.btn[disabled] {
   cursor: default;
   opacity: .8;
 }
@@ -207,6 +209,17 @@ input:focus {
   margin-left: var(--spacing-one);
 }
 
+.Projects {
+  width: 300%;
+  padding-left: 15%;
+}
+
+.Project {
+  width: 300%;
+  padding-left: 15%;
+  margin-bottom: 10px;
+}
+
 .mx-2 {
   margin-right: var(--spacing-two);
   margin-left: var(--spacing-two);
@@ -262,6 +275,8 @@ label{
   color: #370617;
   margin: 0;
   text-shadow: 0 0 10px rgba(253, 253, 253, 0.5);
+  text-align: center;
+  padding: 20px 0px 20px 0px;
 }
 .card-d {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
