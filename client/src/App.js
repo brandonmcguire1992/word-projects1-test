@@ -14,6 +14,7 @@ import DashboardForm from "./components/Dashboard";
 // import Success from "./pages/Success";
 // import OrderHistory from "./pages/OrderHistory";
 import Project from "./components/Project";
+import AllProjects from "./components/AllProjects";
 
 
 const client = new ApolloClient({
@@ -40,7 +41,8 @@ function App() {
               <Route exact path="/login" component={Login} />
               <Route exact path="/signup" component={Signup} />
               <Route exact path="/Dashboard" component={DashboardForm} />
-              <Route exact path="/MyProject" component={Project} />                    
+              <Route exact path="/MyProject" component={Project} />
+              <Route exact path="/AllProjects" component={AllProjects} />
             </Switch> }
           {/* </StoreProvider> */}
         </div>

@@ -112,10 +112,14 @@ function DashboardForm() {
           <div>
             <p className="error-text">{errorText}</p>
           </div>
+          
         )}
+        <div>
+          <br></br>
         <button data-testid="btntag" type="submit">
           Submit
         </button>
+        </div>
       </form>
     </section>
   );

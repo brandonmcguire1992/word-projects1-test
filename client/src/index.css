@@ -60,6 +60,7 @@ h3 {
 
 h4 {
   font-size: 1.5rem;
+  text-align: left;
 }
 
 h5 {
@@ -73,6 +74,7 @@ h6 {
 p {
   font-size: 1.1rem;
   margin-top: 0;
+  text-align: justify;
 }
 
 a {
@@ -205,6 +207,17 @@ input:focus {
 .mx-12 {
   margin-right: var(--spacing-one);
   margin-left: var(--spacing-one);
+}
+
+.Projects {
+  width: 300%;
+  padding-left: 15%;
+}
+
+.Project {
+  width: 300%;
+  padding-left: 15%;
+  margin-bottom: 10px;
 }
 
 .mx-2 {
