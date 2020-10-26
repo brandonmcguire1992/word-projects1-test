@@ -41,7 +41,7 @@ type Mutation {
     addProject(project:projectInput):User
     deleteProject(_id:ID):User
     editProject(project:projectInput):User
-    addBulkProject(project:[projectInput]):User
+    addBulkProject(project:[projectInput],token:ID):User
 }
 `;
 
