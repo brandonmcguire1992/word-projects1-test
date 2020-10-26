@@ -19,6 +19,7 @@ export default function AllProject() {
   return !loading
     ? userData.projects.map((my) => (
       <div className="Projects">
+        {/* <h2>Projects</h2> */}
         <Accordion key={my._id} defaultActiveKey="0">
           <Card>
             <Accordion.Toggle as={Card.Header} eventKey="0">

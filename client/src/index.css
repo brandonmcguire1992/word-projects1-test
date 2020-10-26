@@ -125,7 +125,7 @@ a{
 
 }
 
-button {
+.btn {
   font-size: 1rem;
   text-decoration: none;
   padding: 0.25rem 1rem;
@@ -137,11 +137,11 @@ button {
   background-color: var(--secondary);
 }
 
-button:hover {
+.btn:hover {
   opacity: .8;
 }
 
-button[disabled] {
+.btn[disabled] {
   cursor: default;
   opacity: .8;
 }
@@ -275,6 +275,8 @@ label{
   color: #370617;
   margin: 0;
   text-shadow: 0 0 10px rgba(253, 253, 253, 0.5);
+  text-align: center;
+  padding: 20px 0px 20px 0px;
 }
 .card-d {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
