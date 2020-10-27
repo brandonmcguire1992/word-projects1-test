@@ -373,7 +373,7 @@ button {
 /* MEDIA QUERY FOR MOBILE PHONES AND SMALLER */
 @media screen and (max-width: 575px) {
   .title-2 {
-    font-size: 36px;
+    font-size: 26px;
   }
 
 }

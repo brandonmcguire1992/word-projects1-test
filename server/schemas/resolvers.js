@@ -17,7 +17,9 @@ const resolvers = {
       throw new AuthenticationError('Not logged in');
     },
     users: async () => {
-      return User.find();
+      return User.find()
+      .select('-__v -password')
+        .populate('projects')
 
     },
     user: async (parent, { firstName }) => {
