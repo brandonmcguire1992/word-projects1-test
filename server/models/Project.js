@@ -15,7 +15,7 @@ const projectSchema = new Schema({
       date: {
         type: Date,
         default: Date.now,
-        get: timestamp => moment(timestamp).format('MMM Do, YYYY [at] hh:mm a')
+        get: timestamp => moment(timestamp).format('MMM Do, YYYY')
       },    
 
 });
