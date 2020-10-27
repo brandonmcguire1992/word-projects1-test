@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { Component } from "react";
 import { useQuery } from "@apollo/react-hooks";
 import { ALL_PROJECTS, QUERY_USER } from "../../utils/queries";
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -6,10 +6,8 @@ import Accordion from 'react-bootstrap/Accordion'
 import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
 import ButtonGroup from 'react-bootstrap/ButtonGroup'
-import ButtonToolbar from 'react-bootstrap/ButtonToolbar';
-import { loadStripe } from "@stripe/stripe-js";
+import ButtonToolbar from 'react-bootstrap/ButtonToolbar'
 
-const stripePromise = loadStripe("pk_test_TYooMQauvdEDq54NiTphI7jx");
 
 export default function AllProject() {
   const { loading, data } = useQuery(ALL_PROJECTS);
