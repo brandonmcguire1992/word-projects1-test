@@ -39,6 +39,6 @@ db.once('open', async () => {
       ]);
   
        
-  
-    process.exit();
+      process.exit();
   });
+  //commets
