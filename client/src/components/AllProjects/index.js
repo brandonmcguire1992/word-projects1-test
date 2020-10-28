@@ -18,32 +18,34 @@ export default function AllProject() {
     console.log('All project', userData[0].projects[0].title);
   }
   return !loading
-    ? (userData || []).map((userData) => (
+    ? (userData || []).map(userData => (
       <div className="Projects">
         {/* <h2>Projects</h2> */}
-        <Accordion key={userData.projects._id} defaultActiveKey="0">
-          <Card>
-            <Accordion.Toggle as={Card.Header} eventKey="0">
-              <h3>{userData.projects.title}</h3>
-            </Accordion.Toggle>
-            <Accordion.Collapse eventKey="0">
-              <Card.Body>
-                <p>{userData.projects.ideasText}</p><br />
-                <h4>Donation!</h4>
-                <ButtonToolbar aria-label="Toolbar with button groups">
-                  <ButtonGroup className="mr-2" aria-label="First group">
-                    <Button variant="outline-success">$ 10.00</Button>
-                  </ButtonGroup>
-                  <ButtonGroup className="mr-2" aria-label="Second group">
-                    <Button variant="outline-success">$ 20.00</Button>
-                  </ButtonGroup>
-                  <ButtonGroup aria-label="Third group">
-                    <Button variant="outline-success">$ 50.00</Button>
-                  </ButtonGroup>
-                </ButtonToolbar>
-              </Card.Body>
-            </Accordion.Collapse>
-          </Card>
+        <Accordion key={userData?._id} defaultActiveKey="0">
+          { userData?.projects?.map(project => (
+            <Card key={project?._id}>
+              <Accordion.Toggle as={Card.Header} eventKey="0">
+                <h3>{project?.title}</h3>
+              </Accordion.Toggle>
+              <Accordion.Collapse eventKey="0">
+                <Card.Body>
+                  <p>{project?.ideasText}</p><br />
+                  <h4>Donation!</h4>
+                  <ButtonToolbar aria-label="Toolbar with button groups">
+                    <ButtonGroup className="mr-2" aria-label="First group">
+                      <Button variant="outline-success">$ 10.00</Button>
+                    </ButtonGroup>
+                    <ButtonGroup className="mr-2" aria-label="Second group">
+                      <Button variant="outline-success">$ 20.00</Button>
+                    </ButtonGroup>
+                    <ButtonGroup aria-label="Third group">
+                      <Button variant="outline-success">$ 50.00</Button>
+                    </ButtonGroup>
+                  </ButtonToolbar>
+                </Card.Body>
+              </Accordion.Collapse>
+            </Card>
+          ))}
         </Accordion>
       </div>
     ))
