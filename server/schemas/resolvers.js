@@ -20,7 +20,6 @@ const resolvers = {
       return User.find()
       .select('-__v -password')
         .populate('projects')
-
     },
     user: async (parent, { firstName }) => {
       return User.findOne({ firstName })
