@@ -43,7 +43,7 @@ function Project() {
               <Accordion key={my._id} defaultActiveKey="0">
                 <Card>
                   <Accordion.Toggle as={Card.Header} eventKey="0">
-                  <h3>{my.title}<br></br>
+                  <h3><strong>{my.title}</strong><br></br>
                   <h6>{my.date}</h6></h3>
                   </Accordion.Toggle>
                   <Accordion.Collapse eventKey="0">
