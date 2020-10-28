@@ -95,7 +95,7 @@ function DashboardForm() {
         )}
         <div>
           <br></br>
-        <button claseName="btn" data-testid="btntag" type="submit">
+        <button claseName="btn2" data-testid="btntag" type="submit">
           Submit
         </button>
         </div>
