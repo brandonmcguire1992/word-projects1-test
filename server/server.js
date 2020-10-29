@@ -13,6 +13,31 @@ const db = require("./config/connection");
 const PORT = process.env.PORT || 3001;
 const app = express();
 
+const stripe = require('stripe')('sk_test_51HfFq4BJJNpYEWGkbr51tCeGM5BPMEjVLatGmQFya2z40s4IVh9dxrJWObU9N804Nqi3fFUu7nyXICilfwMIC13r001gwstoU8');
+
+app.post('/create-checkout-session', async (req, res) => {
+  const session = await stripe.checkout.sessions.create({
+    payment_method_types: ['card'],
+    line_items: [
+      {
+        price_data: {
+          currency: 'usd',
+          product_data: {
+            name: 'T-shirt',
+          },
+          unit_amount: 2000,
+        },
+        quantity: 1,
+      },
+    ],
+    mode: 'payment',
+    success_url: 'https://yoursite.com/success.html',
+    cancel_url: 'https://example.com/cancel',
+  });
+
+  res.json({ id: session.id });
+});
+
 const server = new ApolloServer({
   typeDefs,
   resolvers,
@@ -41,3 +66,6 @@ db.once("open", () => {
     console.log(`Use GraphQL at http://localhost:${PORT}${server.graphqlPath}`);
   });
 });
+
+// app.listen(4242, () => console.log(`Listening on port ${4242}!`));
+
