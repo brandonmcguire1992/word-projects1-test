@@ -16,6 +16,7 @@ function Project() {
   const userData = data?.me || {};
 
   const handleDeleteProject = async (_id) => {
+  
     console.log("ID to delete", _id);
 
     try {
@@ -64,7 +65,6 @@ function Project() {
                       <Card.Body>
                         <p>{my.ideasText}</p>
                         <br />
-
                         <Button
                           variant="outline-success"
                           onClick={() => handleDeleteProject(my._id)}

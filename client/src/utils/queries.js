@@ -33,7 +33,7 @@ me{
 `;
 
 export const ALL_PROJECTS=gql`
-query{
+{
   users{  
     _id
     firstName
