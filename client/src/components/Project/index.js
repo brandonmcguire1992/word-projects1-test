@@ -34,7 +34,7 @@ function Project() {
   useEffect(() => {
     async function getProjects() {
       const projects = await idbPromise("projects", "get");
-      console.log(projects);
+      userData.projects = projects;
     }
     if (!userData?.projects?.length) {
       getProjects();
@@ -44,7 +44,7 @@ function Project() {
   return (
     <>
       <h5>
-        {userData.firstName} {userData.lastName} have {userData.projectCount}{" "}
+        {userData?.firstName} {userData?.lastName} have {userData?.projectCount}{" "}
         project(s)
       </h5>
       {!loading
