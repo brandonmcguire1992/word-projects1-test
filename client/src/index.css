@@ -52,7 +52,7 @@ h3{
 h1 {
   font-size: 2.25rem;
 }
-h1.title,h2.title,h6.title-2 
+h1.title,h6.title-2 
   {
   color:#0077b6;
 }
@@ -370,9 +370,12 @@ button.btnP{
   color:green;
 }
 
-/*.accordion>.card>.card-header{
-  background-color:#0077b6;
-}*/
+.image{
+  width: 8%;
+  padding-right: 10px;
+}
+
+
 @media screen and (max-width: 980px) {
   header {
     padding-bottom: 0;

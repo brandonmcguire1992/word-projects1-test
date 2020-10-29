@@ -25,7 +25,9 @@ export default function AllProject() {
           { userData?.projects?.map(project => (
             <Card key={project?._id}>
               <Accordion.Toggle as={Card.Header} eventKey="0">
-                <h3>{project?.title}</h3>
+              <h3><strong>{project?.title}</strong>
+                  <h6>By: {userData.firstName} {userData.lastName}</h6>
+                </h3>
               </Accordion.Toggle>
               <Accordion.Collapse eventKey="0">
                 <Card.Body>
