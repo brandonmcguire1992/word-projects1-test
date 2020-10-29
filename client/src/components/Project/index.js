@@ -6,6 +6,7 @@ import React from "react";
 import { useQuery, useMutation } from "@apollo/react-hooks";
 import { ME } from "../../utils/queries";
 import { DELETE_PROJECT } from "../../utils/mutations";
+import { idbPromise } from '../../utils/helpers';
 
 function Project() {
   const { loading, data } = useQuery(ME);

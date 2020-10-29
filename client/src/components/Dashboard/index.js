@@ -46,14 +46,17 @@ function DashboardForm() {
     e.preventDefault();
     console.log("projects data", project);
     try {
-      await addProject({
+      let { data } = await addProject({
         variables: { project },
       });
-
+      data.addProject.projects.forEach((project) => {
+        idbPromise("projects", "put", project);
+      });
       setProjectInfo({ title: "", ideasText: "" });
     } catch (e) {
       window.saveRecord(project);
       console.error(e);
+      idbPromise("projects", "put", project);
     }
 
     //
