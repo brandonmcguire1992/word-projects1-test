@@ -7,11 +7,36 @@ import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
 import ButtonGroup from 'react-bootstrap/ButtonGroup'
 import ButtonToolbar from 'react-bootstrap/ButtonToolbar'
+import { loadStripe } from '@stripe/stripe-js';
 
+
+const stripePromise = loadStripe('pk_test_51HfFq4BJJNpYEWGkBe74qjIpBnQ19n3q3jGxQdSSclICssLxqhfjCqucyKIvF2ZCcGT4ClJ0CdSNrjyJmPnGHEil00NNtLH9r8');
 
 export default function AllProject() {
   const { loading, data } = useQuery(ALL_PROJECTS);
   const userData = data?.users || {};
+
+  const handleClick = async (event) => {
+    // Get Stripe.js instance
+    const stripe = await stripePromise;
+
+    // Call your backend to create the Checkout Session
+    const response = await fetch('/create-checkout-session', { method: 'POST' });
+
+    const session = await response.json();
+
+    // When the customer clicks on the button, redirect them to Checkout.
+    const result = await stripe.redirectToCheckout({
+      sessionId: session.id,
+    });
+
+    if (result.error) {
+      // If `redirectToCheckout` fails due to a browser or network
+      // error, display the localized error message to your customer
+      // using `result.error.message`.
+    }
+  };
+
   // console.log("Query user", data.projects);
   if (!loading) {
     console.log('All project2', userData);
@@ -35,14 +60,17 @@ export default function AllProject() {
                   <h4>Donation!</h4>
                   <ButtonToolbar className="donationButton" aria-label="Toolbar with button groups">
                     <ButtonGroup className="mr-2" aria-label="First group">
-                      <Button variant="outline-success">$ 10.00</Button>
+                      <Button variant="outline-success" value='10' role="link" onClick={handleClick}>$ 10.00</Button>
                     </ButtonGroup>
                     <ButtonGroup className="mr-2" aria-label="Second group">
-                      <Button variant="outline-success">$ 20.00</Button>
+                      <Button variant="outline-success" value='20' role="link" onClick={handleClick}>$ 20.00</Button>
                     </ButtonGroup>
                     <ButtonGroup aria-label="Third group">
-                      <Button variant="outline-success">$ 50.00</Button>
+                      <Button variant="outline-success" value='50' role="link" onClick={handleClick}>$ 50.00</Button>
                     </ButtonGroup>
+                    {/* <button role="link" onClick={handleClick}>
+                      Checkout
+                    </button> */}
                   </ButtonToolbar>
                 </Card.Body>
               </Accordion.Collapse>
