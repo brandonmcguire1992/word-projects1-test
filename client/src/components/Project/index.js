@@ -1,22 +1,23 @@
-import Accordion from 'react-bootstrap/Accordion'
-import Card from 'react-bootstrap/Card'
-import Button from 'react-bootstrap/Button'
-import 'bootstrap/dist/css/bootstrap.min.css';
-import React from "react";
+import Accordion from "react-bootstrap/Accordion";
+import Card from "react-bootstrap/Card";
+import Button from "react-bootstrap/Button";
+import "bootstrap/dist/css/bootstrap.min.css";
+import React, { useEffect } from "react";
 import { useQuery, useMutation } from "@apollo/react-hooks";
 import { ME } from "../../utils/queries";
 import { DELETE_PROJECT } from "../../utils/mutations";
+import { idbPromise } from "../../utils/helpers";
 
 function Project() {
-
   const { loading, data } = useQuery(ME);
 
-    const [deleteProject] = useMutation(DELETE_PROJECT);
+  const [deleteProject] = useMutation(DELETE_PROJECT);
 
   const userData = data?.me || {};
 
   const handleDeleteProject = async (_id) => {
-    console.log("ID to delete", _id)
+  
+    console.log("ID to delete", _id);
 
     try {
       await deleteProject({ variables: { _id } });
@@ -31,6 +32,15 @@ function Project() {
   if (!loading) {
     console.log(userData);
   }
+  useEffect(() => {
+    async function getProjects() {
+      const projects = await idbPromise("projects", "get");
+      userData.projects = projects;
+    }
+    if (!userData?.projects?.length) {
+      getProjects();
+    }
+  }, []);
 
   return (
     <>
@@ -48,8 +58,7 @@ function Project() {
                   </Accordion.Toggle>
                   <Accordion.Collapse eventKey="0">
                     <Card.Body>
-                      <p>{my.ideasText}</p><br />                
-
+                      <p>{my.ideasText}</p><br />               
                       <Button variant="outline-danger" onClick={() => handleDeleteProject(my._id)}>
                         <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-trash" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                           <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z" />
@@ -66,7 +75,7 @@ function Project() {
           )
         }) : ""}
     </>
-  )
+  );
 }
 
 export default Project;
