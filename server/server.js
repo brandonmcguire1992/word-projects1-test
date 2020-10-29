@@ -15,20 +15,31 @@ const app = express();
 
 const stripe = require('stripe')('sk_test_51HfFq4BJJNpYEWGkbr51tCeGM5BPMEjVLatGmQFya2z40s4IVh9dxrJWObU9N804Nqi3fFUu7nyXICilfwMIC13r001gwstoU8');
 
-app.post('/create-checkout-session', async (req, res) => {
+app.post('/create-checkout-session/:value', async (req, res) => {
   const session = await stripe.checkout.sessions.create({
     payment_method_types: ['card'],
     line_items: [
+      // {
+      //   price_data: {
+      //     currency: 'usd',
+      //     product_data: {
+      //       name: 'T-shirt',
+      //     },
+      //     unit_amount: 2000,
+      //   },
+      //   quantity: 1,
+      // },
       {
         price_data: {
           currency: 'usd',
           product_data: {
-            name: 'T-shirt',
+            name: 'Donate',
           },
-          unit_amount: 2000,
+          unit_amount: parseInt(req.params.value)*100,
         },
         quantity: 1,
       },
+
     ],
     mode: 'payment',
     success_url: 'https://yoursite.com/success.html',

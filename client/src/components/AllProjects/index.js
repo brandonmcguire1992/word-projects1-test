@@ -17,11 +17,14 @@ export default function AllProject() {
   const userData = data?.users || {};
 
   const handleClick = async (event) => {
+    
+    console.log("value button clicked:", event.target.value) 
+        const value = event.target.value
+
     // Get Stripe.js instance
     const stripe = await stripePromise;
-
     // Call your backend to create the Checkout Session
-    const response = await fetch('/create-checkout-session', { method: 'POST' });
+    const response = await fetch(`/create-checkout-session/`+ value, { method: 'POST' });
 
     const session = await response.json();
 
@@ -60,13 +63,13 @@ export default function AllProject() {
                   <h4>Donation!</h4>
                   <ButtonToolbar className="donationButton" aria-label="Toolbar with button groups">
                     <ButtonGroup className="mr-2" aria-label="First group">
-                      <Button variant="outline-success" value='10' role="link" onClick={handleClick}>$ 10.00</Button>
+                      <Button variant="outline-success" value='10' role="link" onClick={(e)=> handleClick(e)}>$ 10.00</Button>
                     </ButtonGroup>
                     <ButtonGroup className="mr-2" aria-label="Second group">
-                      <Button variant="outline-success" value='20' role="link" onClick={handleClick}>$ 20.00</Button>
+                      <Button variant="outline-success" value='20' role="link" onClick={(e)=> handleClick(e)}>$ 20.00</Button>
                     </ButtonGroup>
                     <ButtonGroup aria-label="Third group">
-                      <Button variant="outline-success" value='50' role="link" onClick={handleClick}>$ 50.00</Button>
+                      <Button variant="outline-success" value='50' role="link" onClick={(e)=> handleClick(e)}>$ 50.00</Button>
                     </ButtonGroup>
                     {/* <button role="link" onClick={handleClick}>
                       Checkout
