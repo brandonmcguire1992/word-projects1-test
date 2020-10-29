@@ -2,11 +2,11 @@ import Accordion from "react-bootstrap/Accordion";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import "bootstrap/dist/css/bootstrap.min.css";
-import React from "react";
+import React, { useEffect } from "react";
 import { useQuery, useMutation } from "@apollo/react-hooks";
 import { ME } from "../../utils/queries";
 import { DELETE_PROJECT } from "../../utils/mutations";
-import { idbPromise } from '../../utils/helpers';
+import { idbPromise } from "../../utils/helpers";
 
 function Project() {
   const { loading, data } = useQuery(ME);
@@ -31,6 +31,15 @@ function Project() {
   if (!loading) {
     console.log(userData);
   }
+  useEffect(() => {
+    async function getProjects() {
+      const projects = await idbPromise("projects", "get");
+      console.log(projects);
+    }
+    if (!userData?.projects?.length) {
+      getProjects();
+    }
+  }, []);
 
   return (
     <>
