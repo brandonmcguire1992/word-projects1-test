@@ -1,6 +1,7 @@
 import React from "react";
 import Auth from "../../utils/auth";
 import { Link } from "react-router-dom";
+import img from '../../assets/favicon.ico';
 
 function Nav() {
 
@@ -53,7 +54,7 @@ function Nav() {
     <header className="flex-row px-1">
       <h1>
         <Link to="/">
-          <span role="img" aria-label="shopping bag">📝</span>
+          <span role="img" aria-label="shopping bag"> <img src={img} alt="logo" /></span>
           Words Projects
         </Link>
       </h1>

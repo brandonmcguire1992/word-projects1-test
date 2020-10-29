@@ -1,5 +1,5 @@
 :root {
-  --primary: #532e18;
+  --primary: #0077b6;
   --secondary: #F3A847;
   --tertiary: #B12704;
   --light: #fafafa;
@@ -40,14 +40,21 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: 'Rubik', sans-serif;
+  font-family: 'Courgette', cursive;
   font-weight: 500;
   margin: 5px 0;
   line-height: 1.25;
+  /*co*lor:#0077b6;*/
 }
-
+h3{
+  color:black;
+}
 h1 {
   font-size: 2.25rem;
+}
+h1.title,h2.title,h6.title-2 
+  {
+  color:#0077b6;
 }
 
 h2 {
@@ -105,7 +112,8 @@ header {
 }
 
 header a {
-  color:#370617;
+  color:#0077b6;
+  font-family: 'Courgette', cursive;
 }
 header nav ul {
   display: flex;
@@ -120,10 +128,13 @@ header nav ul li a {
   font-weight: lighter;
   font-size: 1.55vw;
   text-shadow: 0 0 10px rgb(255, 254, 254);
+  font-family: 'Courgette', cursive;
+  font-weight: bold;
+
 }
 header nav ul li a:hover {
   background: var(--light);
-  color: #370617;
+  color: #0077b6;
   border-radius: 15px;
   text-shadow: none;
 }
@@ -139,9 +150,11 @@ a{
   border-radius: .5rem;
   border: none;
   outline: none;
-  cursor: pointer;
+  cursor: pointer; 
   margin: 20px 0px 0px 1200px;
-  background-color: #370617;
+  color: #0077b6;
+  background-color:  rgba(255, 255, 255, 0.75);
+  font-family: 'Courgette', cursive;
   align-items: center;
 }
 
@@ -275,21 +288,20 @@ input:focus {
 .error-text {
   color: var(--error);
 }
-label{
-  color:#370617;
+
+label.LabelDasgboard{
+  color:#0077b6;
   font-weight: bold;
-
 }
-
 .title-home {
   font-weight: bold;
   font-size: 76px;
-  color: #370617;
+  color: #0077b6;
   margin: 0;
   text-shadow: 0 0 10px rgba(253, 253, 253, 0.5);
   text-align: center;
   padding: 20px 0px 20px 0px;
-}
+  font-family: 'Courgette', cursive;}
 
 .title {
   font-weight: bold;
@@ -313,8 +325,7 @@ label{
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   border-radius: 15px;
   background-color: rgba(2, 97, 116, 0.466);
-  padding: 20px;
-  color: white;
+  padding: 20px; 
   border: solid 3px var(--primary);
   width: 90%;
   margin: 3.5%;
@@ -344,14 +355,24 @@ input, textarea {
 }
 
 button {
-  color: white;
-  background-color: var(--primary);
+  color: #0077b6;
+  background-color:  rgba(255, 255, 255, 0.75);
+  font-family: 'Courgette', cursive;
+  font-weight: bold;
   padding: 10px;
   margin: 20px;
-  border-radius: 15px;
   width: 100px;
 }
+button.btnP{
+  color:#d90429;
+}
+.donationButton{
+  color:green;
+}
 
+/*.accordion>.card>.card-header{
+  background-color:#0077b6;
+}*/
 @media screen and (max-width: 980px) {
   header {
     padding-bottom: 0;

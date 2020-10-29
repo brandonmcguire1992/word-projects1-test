@@ -31,7 +31,7 @@ export default function AllProject() {
                 <Card.Body>
                   <p>{project?.ideasText}</p><br />
                   <h4>Donation!</h4>
-                  <ButtonToolbar aria-label="Toolbar with button groups">
+                  <ButtonToolbar className="donationButton" aria-label="Toolbar with button groups">
                     <ButtonGroup className="mr-2" aria-label="First group">
                       <Button variant="outline-success">$ 10.00</Button>
                     </ButtonGroup>
