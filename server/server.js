@@ -16,6 +16,9 @@ const app = express();
 const stripe = require('stripe')('sk_test_51HfFq4BJJNpYEWGkbr51tCeGM5BPMEjVLatGmQFya2z40s4IVh9dxrJWObU9N804Nqi3fFUu7nyXICilfwMIC13r001gwstoU8');
 
 app.post('/create-checkout-session/:value', async (req, res) => {
+  // const url = new URL(context.headers.referer).origin;
+
+  
   const session = await stripe.checkout.sessions.create({
     payment_method_types: ['card'],
     line_items: [
