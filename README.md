@@ -15,8 +15,6 @@ Word Projects is a platform for entrepreneurs looking to show off their ideas an
   * [Installation](#installation)
   * [Usage](#usage)
   * [License](#license)
-  * [Contributing](#contributing)
-  * [Testing](#testing)
   * [Questions](#questions)
 
 ## Installation
@@ -38,5 +36,5 @@ Word Projects is a platform for entrepreneurs looking to show off their ideas an
   [Justin](https://github.com/jeoldmixon)
 
   [Nicolas](https://github.com/NIKO09ES)
-  
+
   [Zachary](https://github.com/ZachWagner1)
