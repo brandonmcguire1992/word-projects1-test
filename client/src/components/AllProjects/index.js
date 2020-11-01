@@ -43,7 +43,7 @@ export default function AllProject() {
   // console.log("Query user", data.projects);
   if (!loading) {
     console.log('All project2', userData);
-    console.log('All project', userData[0].projects[0].title);
+    //console.log('All project', userData[0].projects[0].title);
   }
   return !loading
     ? (userData || []).map(userData => (

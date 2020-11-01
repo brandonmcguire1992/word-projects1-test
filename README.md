@@ -5,6 +5,12 @@
 
 Word Projects is a platform for entrepreneurs looking to show off their ideas and projects.
 
+![Home Page](./assets/screenshots/homepage.png)
+![Signup Page](./assets/screenshots/signup.png)
+![Dashboard Page](./assets/screenshots/dashboard.png)
+![My Projects Page](./assets/screenshots/myproject.png)
+![All Projects Page](./assets/screenshots/allproject.png)
+
 ## Table of Contents
   * [Installation](#installation)
   * [Usage](#usage)
