@@ -1,8 +1,9 @@
 const { AuthenticationError } = require('apollo-server-express');
 const { User } = require('../models');
 const { signToken } = require('../utils/auth');
-//const stripe = require('stripe')('sk_test_4eC39HqLyjWDarjtT1zdp7dc');
-const mongoose=require('mongoose')
+const stripe = require('stripe')('sk_test_51HfFq4BJJNpYEWGkbr51tCeGM5BPMEjVLatGmQFya2z40s4IVh9dxrJWObU9N804Nqi3fFUu7nyXICilfwMIC13r001gwstoU8');
+const mongoose=require('mongoose');
+const { default: Stripe } = require('stripe');
 const resolvers = {
   Query: {
     me: async (parent, args, context) => {
@@ -26,6 +27,46 @@ const resolvers = {
         .select('-__v -password')
         .populate('projects')
     },
+    // checkout: async (parent, args, context) => {
+    //   const url =new URL (context.headers.referer).origin;
+    //   const line_items= [
+    //     {
+    //       price_data: {
+    //         currency: 'usd',
+    //         product_data: {
+    //           name: 'Donate',
+    //         },
+    //         unit_amount: parseInt(req.params.value)*100,
+    //       },
+    //       quantity: 1,
+    //     }
+    //   ];
+    //   for (let i=0; i< donate.length; i++) {
+    //     // const donate = await Stripe.donate.create({
+    //     //   name: donate[i].name,
+
+    //     // })
+    //     const price = await stripe.prices.create({
+    //       donate: donate.id,
+    //       unit_amount: donate[i].price * 100,
+    //       currency: 'usd',
+    //     });
+    //     line_items.push({
+    //       price: price.id,
+    //       quantity: 1
+    //     });
+    //   }
+
+    //   const session = await stripe.checkout.sessions.create({
+    //     payment_method_types: ['card'],
+    //     line_items,
+    //     mode: 'payment',
+    //     success_url: `${url}/success?session_id={CHECKOUT_SESSION_ID}`,
+    //     cancel_url: `${url}/`
+    //   });
+
+    //   return { session: session.id };
+    // }
   },
 
   Mutation: {

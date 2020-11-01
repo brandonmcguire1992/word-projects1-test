@@ -24,7 +24,7 @@ export default function AllProject() {
     // Get Stripe.js instance
     const stripe = await stripePromise;
     // Call your backend to create the Checkout Session
-    const response = await fetch(`/create-checkout-session/`+ value, { method: 'POST' });
+    const response = await fetch(`/create-checkout-session/`+ value, { method: 'POST'});
 
     const session = await response.json();
 
