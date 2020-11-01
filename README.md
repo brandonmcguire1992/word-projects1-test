@@ -30,8 +30,13 @@ Word Projects is a platform for entrepreneurs looking to show off their ideas an
 
 ## Questions
   Visit us at GitHub
-  [Annia](https://github.com/anniavd)  
-  [Brandon(https://github.com/brandonmcguire1992)
+
+  [Annia](https://github.com/anniavd) 
+
+  [Brandon](https://github.com/brandonmcguire1992)
+  
   [Justin](https://github.com/jeoldmixon)
+
   [Nicolas](https://github.com/NIKO09ES)
+  
   [Zachary](https://github.com/ZachWagner1)
