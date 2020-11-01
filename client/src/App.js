@@ -15,6 +15,7 @@ import DashboardForm from "./components/Dashboard";
 // import OrderHistory from "./pages/OrderHistory";
 import Project from "./components/Project";
 import AllProjects from "./components/AllProjects";
+// import Success from './components/Success'
 
 
 const client = new ApolloClient({
@@ -30,6 +31,7 @@ const client = new ApolloClient({
 })
 
 function App() {
+
   return (
     <ApolloProvider client={client}>
       <Router>
@@ -42,6 +44,8 @@ function App() {
             <Route exact path="/signup" component={Signup} />
             <Route exact path="/Dashboard" component={DashboardForm} />
             <Route exact path="/MyProject" component={Project} />
+            {/* <Route exact path="/Success" component={Success} /> */}
+
             <div>
               <h2 className="title">Projects</h2>
               <Route exact path="/AllProjects" component={AllProjects} />
