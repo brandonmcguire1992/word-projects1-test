@@ -1,22 +1,50 @@
 import gql from 'graphql-tag';
 
 export const QUERY_USER = gql`
-{
-  user {
-    firstName
-    lastName
-    orders {
-      _id
-      purchaseDate
-      products {
-        _id
-        name
-        description
-        price
-        quantity
-        image
-      }
+  query ($firstName: String!) {
+    user(firstName: $firstName) {
+          firstName
+          lastName				       
+          projects {
+             title
+             ideasText
+             date
+          }
+      projectCount
     }
+  }
+`;
+
+export const ME = gql`
+{
+me{  
+  _id
+  firstName
+  lastName   
+  projects{
+    _id
+    title
+    ideasText
+    date      
+  }
+   projectCount     
+ }
+}
+`;
+
+export const ALL_PROJECTS=gql`
+{
+  users{  
+    _id
+    firstName
+    lastName   
+    projects{
+      _id
+      title
+      ideasText
+      date      
+    }
+     projectCount     
   }
 }
 `;

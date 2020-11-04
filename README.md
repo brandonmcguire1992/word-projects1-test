@@ -1,1 +1,40 @@
-# Words-Projects
+# Word Projects
+![MIT license badge](https://img.shields.io/badge/license-MIT-green)
+
+## Description
+
+Word Projects is a platform for entrepreneurs looking to show off their ideas and projects.
+
+![Home Page](./assets/screenshots/homepage.png)
+![Signup Page](./assets/screenshots/signup.png)
+![Dashboard Page](./assets/screenshots/dashboard.png)
+![My Projects Page](./assets/screenshots/myproject.png)
+![All Projects Page](./assets/screenshots/allproject.png)
+
+## Table of Contents
+  * [Installation](#installation)
+  * [Usage](#usage)
+  * [License](#license)
+  * [Questions](#questions)
+
+## Installation
+  Clone project to your machine and run npm install in terminal to get all of the dependencies. Run npm start to open the application locally.
+
+## Usage
+  New users can sign up using the sign up page and begin writing their own projects.
+
+## License 
+  This project is covered under the MIT license.
+
+## Questions
+  Visit us at GitHub
+
+  [Annia](https://github.com/anniavd) 
+
+  [Brandon](https://github.com/brandonmcguire1992)
+  
+  [Justin](https://github.com/jeoldmixon)
+
+  [Nicolas](https://github.com/NIKO09ES)
+
+  [Zachary](https://github.com/ZachWagner1)
