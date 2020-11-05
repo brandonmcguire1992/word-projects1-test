@@ -9,5 +9,12 @@
       
     </p>
     <img src="https://media.giphy.com/media/3ohs7JG6cq7EWesFcQ/giphy.gif"></img>
+    <script>
+      var stripe = Stripe('pk_test_TYooMQauvdEDq54NiTphI7jx');
+    
+      stripe.redirectToCheckout({
+        sessionId: {CHECKOUT_SESSION_ID},
+      });
+    </script>
   </body>
 </html>

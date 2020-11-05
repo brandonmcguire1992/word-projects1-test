@@ -21,8 +21,9 @@ const stripe = require('stripe')('sk_test_51HfFq4BJJNpYEWGkbr51tCeGM5BPMEjVLatGm
 //   res.send(session);
 // });
 
-app.post('/create-checkout-session/:value', async (req, res) => {
-  const url = process.env.DOMAIN;
+app.post('/create-checkout-session/:value', async (req, res,) => {
+  // const url = process.env.DOMAIN;
+  // const url = new URL(context.headers.referer).origin;
 
   
   const session = await stripe.checkout.sessions.create({
@@ -55,8 +56,8 @@ app.post('/create-checkout-session/:value', async (req, res) => {
     // cancel_url: 'https://example.com/cancel',
     // success_url: 'https://example.com/success?session_id={CHECKOUT_SESSION_ID}',
     // cancel_url: 'https://example.com/cancel'
-    success_url: `${url}/success.html?session_id={CHECKOUT_SESSION_ID}`,
-    cancel_url: `${url}/canceled.html`,
+    success_url: `https://wordsprojects.herokuapp.com/success.html?session_id={CHECKOUT_SESSION_ID}`,
+    cancel_url: `https://wordsprojects.herokuapp.com/canceled.html`,
   });
 
   res.json({ id: session.id });
