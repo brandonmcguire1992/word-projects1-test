@@ -66,18 +66,7 @@ function checkDatabase() {
         }),
       })
         .then((r) => r.json())
-        // .then((data) => console.log(data));
-        // fetch("/api/transaction/bulk", {
-        //   method: "POST",
-        //   body: JSON.stringify(getAll.result),
-        //   headers: {
-        //     Accept: "application/json, text/plain, */*",
-        //     "Content-Type": "application/json"
-        //   }
-        // })
-        // .then(response => {
-        //   return response.json();
-        // })
+        
         .then(() => {
           // delete records if successful
           const transaction = db.transaction(["user"], "readwrite");

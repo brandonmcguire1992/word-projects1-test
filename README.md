@@ -8,9 +8,11 @@ Word Projects was built with the purpose of offering the users the opportunity t
 In today's world, we feel it’s essential for entrepreneurs to have a place to show off their ideas, and be eligible to receive donations to fund their projects as well.
 
 
-![Home Page](./assets/screenshots/homepage.png)
+![Home Page](./client/src/assets/homepage.png
 
-### Visit the site! [Words-Projects](https://wordsprojects.herokuapp.com/)
+)
+
+### Visit the site! [Words-Projects](https://word-project1.herokuapp.com/)
 
 ## Table of Contents
   * [Installation](#installation)
@@ -25,19 +27,19 @@ In today's world, we feel it’s essential for entrepreneurs to have a place to 
 ## Usage
   New users must sign up in order to unlock all the features of Words-Projects.
 
-  ![Signup Page](./assets/screenshots/signup.png)
+  ![Signup Page](./client/src/assets/signup.png)
 
   The Dashboard page is where you can begin sharing your new idea.
 
-  ![Dashboard Page](./assets/screenshots/dashboard.png)
+  ![Dashboard Page](./client/src/assets/dashboard.png)
 
   Users can then publish their words project and it will display on their own personal tab My Project. 
 
-  ![My Projects Page](./assets/screenshots/myproject.png)
+  ![My Projects Page](./client/src/assets/myproject.png)
 
   Users projects will also appear with everyone elses projects on the All Projects page. This page you can discover other users ideas and contribute to their projects as well. 
 
-  ![All Projects Page](./assets/screenshots/allproject.png)
+  ![All Projects Page](./client/src/assets/allproject.png)
 
 ## License 
   This project is covered under the MIT license.
